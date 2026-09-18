@@ -1,0 +1,70 @@
+@startuml
+interface 策略模式.PaymentStrategy {
+~ boolean pay(double)
+}
+
+class 策略模式.NormalDiscount {
++ double calcPrice(double)
+}
+
+class 策略模式.Main {
++ {static} void main(String[])
+}
+
+class 策略模式.PaymentContext {
+- PaymentStrategy strategy
++ void setStrategy(PaymentStrategy)
++ boolean doPay(double)
+}
+
+
+class 策略模式.BankCardStrategy {
++ boolean pay(double)
+}
+
+interface 策略模式.DiscountStrategy {
+~ double calcPrice(double)
+}
+
+class 策略模式.VipDiscount {
++ double calcPrice(double)
+}
+
+class 策略模式.WeChatPayStrategy {
++ boolean pay(double)
+}
+
+class 策略模式.OrderContext {
+- DiscountStrategy discountStrategy
++ void setDiscountStrategy(DiscountStrategy)
++ double getFinalPrice(double)
+}
+
+
+class 策略模式.AliPayStrategy {
++ boolean pay(double)
+}
+
+class 策略模式.FullReduceDiscount {
++ double calcPrice(double)
+}
+
+class 策略模式.SvipDiscount {
++ double calcPrice(double)
+}
+
+class 策略模式.ApplePayStrategy {
++ boolean pay(double)
+}
+
+
+
+策略模式.DiscountStrategy <|.. 策略模式.NormalDiscount
+策略模式.PaymentStrategy <|.. 策略模式.BankCardStrategy
+策略模式.DiscountStrategy <|.. 策略模式.VipDiscount
+策略模式.PaymentStrategy <|.. 策略模式.WeChatPayStrategy
+策略模式.PaymentStrategy <|.. 策略模式.AliPayStrategy
+策略模式.DiscountStrategy <|.. 策略模式.FullReduceDiscount
+策略模式.DiscountStrategy <|.. 策略模式.SvipDiscount
+策略模式.PaymentStrategy <|.. 策略模式.ApplePayStrategy
+@enduml
